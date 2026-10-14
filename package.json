@@ -1,0 +1,11 @@
+{
+  "name": "cn-stop-and-wait-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive Stop-and-Wait reliable message delivery simulator",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
+  }
+}
