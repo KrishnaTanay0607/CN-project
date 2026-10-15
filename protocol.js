@@ -71,11 +71,7 @@ function simulateExperiment(config, mode, messages, seed) {
   stats.rttSamples = estimator.samples;
   return { mode, stats: { ...stats, averageDelivery: Math.round(averageDelivery) }, estimator: summaryEstimator(estimator) };
 }
-function summaryEstimator(e) { return { ...e, srtt: e.srtt === null ? null : Math.round(e.srtt), rttvar: e.rttvar === null ? null : Math.round(e.rttvar), rto: Math.round(e.rto) }; }
-function aggregateExperiments(config, messages, trials, seed) {
-  const modes = ["fixed", "adaptive"];
-  const aggregate = {};
-  const runs = {};
+
   modes.forEach(mode => { runs[mode] = []; aggregate[mode] = { averageCompletion: 0, retransmissions: 0, timeouts: 0, duplicates: 0, rttSamples: 0, delivered: 0, failed: 0 }; });
   for (let trial = 0; trial < trials; trial++) {
     modes.forEach(mode => {
