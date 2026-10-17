@@ -88,4 +88,4 @@ function aggregateExperiments(config, messages, trials, seed) {
   modes.forEach(mode => Object.keys(aggregate[mode]).forEach(key => aggregate[mode][key] = Math.round((aggregate[mode][key] / trials) * 100) / 100));
   return { messages, trials, seed, tracePolicy: "Each mode uses the same seeded outcome for every logical message and attempt.", fixed: runs.fixed[0], adaptive: runs.adaptive[0], aggregate };
 }
-module.exports = { G, MIN_RTO, MAX_RTO, clamp, createEstimator, updateEstimator, backoff, seededRandom, hashRandom, simulateExperiment, aggregateExperiments, summaryEstimator };
+
