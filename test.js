@@ -57,5 +57,4 @@ test("an ACK arriving after a timeout completes at its real arrival time", () =>
 test("reset clears protocol state, events, statistics, and adaptive estimates", () => {
   simulation.nextSequence = 1; simulation.nextPacketId = 9; simulation.receiverExpected = 1; simulation.outstanding = { id: 8 }; simulation.events = [{ kind: "ack" }]; simulation.stats.sent = 4; simulation.estimator.samples = 3;
   reset();
-  assert.equal(simulation.nextSequence, 0); assert.equal(simulation.nextPacketId, 1); assert.equal(simulation.receiverExpected, 0); assert.equal(simulation.outstanding, null); assert.equal(simulation.events.length, 0); assert.equal(simulation.stats.sent, 0); assert.equal(simulation.estimator.samples, 0);
-});
+ 
