@@ -6,8 +6,8 @@ This Computer Networks project is an interactive implementatison of the **Stop-a
 
 The sender transmits one packet at a time and waits for an acknowledgement (ACK). If the ACK does not arrive before timeout, the sender retransmits the packet. Sequence numbers `0` and `1` allow the receiver to identify duplicate packets and prevent a message from being delivered twice.
 
-## Adaptive Timeout Optimization//////
-
+## Adaptive Timeout Optimization/
+## check
 The simulator supports two timeout modes:
 
 - **Fixed timeout:** The sender always uses the timeout selected in the controls.
