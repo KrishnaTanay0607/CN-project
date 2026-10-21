@@ -58,8 +58,9 @@ function simulateExperiment(config, mode, messages, seed) {
         if (seq === expected) { expected = 1 - expected; stats.delivered++; }
         else stats.duplicates++;
         if (next.ackLost) stats.ackLost++;
-        else events.push({ type: "ack", at: now + config.delay + config.delayedAck });
+        else events.push({ type: "ack", at: now + config.delay + config.de "layedAck });
       } else {
+        
         stats.deliveryTimes.push(now - started);
         if (mode === "adaptive" && !retransmitted) updateEstimator(estimator, now - lastSentAt);
         done = true;
