@@ -175,7 +175,7 @@ Use Ctrl+P to open a file and Ctrl+G to jump to a line.
 
 ## Running and demo
 
-Run the project:
+Run the project: as follow
 
     node server.js
 
