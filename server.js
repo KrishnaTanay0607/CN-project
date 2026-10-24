@@ -121,4 +121,12 @@ const server = http.createServer(async (req, res) => {
       simulation.comparison = aggregateExperiments(config, messages, trials, seed);
       return json(res, 200, simulation.comparison);
     }
-   
+    if (url.pathname === "/api/reset" && req.method === "POST") { reset(); return json(res, 200, snapshot()); }
+    const filePath = url.pathname === "/" ? path.join(publicDir, "index.html") : path.join(publicDir, url.pathname);
+    if (!filePath.startsWith(publicDir) || !fs.existsSync(filePath)) { res.writeHead(404); return res.end("Not found"); }
+    const types = { ".html": "text/html", ".css": "text/css", ".js": "application/javascript" };
+    res.writeHead(200, { "Content-Type": types[path.extname(filePath)] || "text/plain" }); fs.createReadStream(filePath).pipe(res);
+  } catch (error) { json(res, 400, { error: error.message }); }
+});
+if (require.main === module) server.listen(PORT, () => console.log(`Stop-and-Wait simulator running at http://localhost:${PORT}`));
+module.exports = { server, simulation, reset, defaults, tick, simulationTimer };
