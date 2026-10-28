@@ -2,11 +2,11 @@
 
 ## Project overview
 
-This Computer Networks project is an interactive implementation of the **Stop-and-Wait ARQ (Automatic Repeat reQuest)** protocol. It demonstrates reliable message delivery over an unreliable channel where packets and acknowledgements may be lost or corrupted.
+This Computer Networks project is an interactive implementatison of the **Stop-and-Wait ARQ (Automatic Repeat reQuest)** protocol. It demonstrates reliable message delivery over an unreliable channel where packets and acknowledgements may be lost or corrupted.
 
 The sender transmits one packet at a time and waits for an acknowledgement (ACK). If the ACK does not arrive before timeout, the sender retransmits the packet. Sequence numbers `0` and `1` allow the receiver to identify duplicate packets and prevent a message from being delivered twice.
 
-## Adaptive Timeout Optimization
+## Adaptive Timeout Optimization//////
 
 The simulator supports two timeout modes:
 
@@ -31,7 +31,7 @@ RTO = SRTT + max(G, 4 Ã— RTTVAR)
 
 The dashboard uses shrinkable CSS Grid columns so its channel controls, timeout metrics, protocol statistics, and event log fit within the available page width. At widths up to 1200px the cards use two columns with the event log spanning both; at widths up to 800px they stack in one column. Long event log messages wrap inside the log panel and do not widen the page. This addresses the original overflow caused by grid tracks retaining their content's minimum width and unwrapped log text.
 
-To verify the layout, run `npm start`, open `http://localhost:3000`, and use the browser's responsive device toolbar to check approximately 1920×1080, 1366×768, and narrow viewports such as 800px and 390px. Confirm the page has no horizontal overflow and that the cards and long log entries remain readable.
+To verify the layout, run `npm start`, open `http://localhost:3000`, and use the browser's responsive device toolbar to check approximately 1920ï¿½1080, 1366ï¿½768, and narrow viewports such as 800px and 390px. Confirm the page has no horizontal overflow and that the cards and long log entries remain readable.
 ### Live dashboard and comparison
 
 The live dashboard displays the latest RTT, SRTT, RTTVAR, current RTO, latest delivery time, retransmissions, timeouts, and duplicate packets. The **Repeatable performance comparison** runs fixed and adaptive modes with the same seed and the same selected network conditions, so the bar graph is a fair comparison rather than two unrelated random runs.
